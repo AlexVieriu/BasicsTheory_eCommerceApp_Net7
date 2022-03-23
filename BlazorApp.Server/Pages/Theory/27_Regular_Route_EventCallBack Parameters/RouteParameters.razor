@@ -1,0 +1,21 @@
+﻿@page "/routeparameter/{id:int}"
+
+@inject IPersonRepository personRepo
+
+<ul>
+    <li>@Person.Id</li>
+    <li>@Person.FullName</li>
+    <li>@Person.Email</li>
+</ul>
+
+@code {
+    Person Person = new();
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Person = personRepo.GetPersonbyId(Id);
+    }
+}

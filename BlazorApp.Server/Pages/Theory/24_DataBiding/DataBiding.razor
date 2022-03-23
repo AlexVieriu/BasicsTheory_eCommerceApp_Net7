@@ -1,0 +1,80 @@
+﻿@page "/databinding"
+
+<label class="fw-bold col-2">One way binding</label>
+<label>@product.Name</label>
+<br />
+
+<label class="fw-bold col-2">Two ways binding</label>
+<input type="text" @bind-value="@product.Name" @bind-value:event="oninput" />
+<br />
+
+<label class="fw-bold col-2">CheckBox</label>
+<input type="checkbox" @bind-value="@isActive" /> @isActive
+<br />
+<br />
+
+<label class="fw-bold">Radio Components</label>
+<div>
+    <label class="fw-bold">Method 1: (@selectGroup)</label>
+    <div>
+        <input type="radio" name="group" value="1" @onclick="@(() => selectGroup = 1)" /> 1
+        <input type="radio" name="group" value="2" @onclick="@(() => selectGroup = 2)" /> 2        
+    </div>
+</div>
+
+<div>
+    <label class="fw-bold">Method 2: (@enumNames)</label>
+    <EditForm Model="enumNames">        
+        <InputRadioGroup @bind-Value="enumNames">
+            @foreach (var item in (EnumNames[])Enum.GetValues(typeof(EnumNames)))
+            {
+                <InputRadio Value="item" />
+                @("" + item)
+                <br />
+            }
+        </InputRadioGroup>
+    </EditForm>
+</div>
+
+<div>
+    <label class="fw-bold">Method 3: (@product1.Name)</label>
+    <EditForm Model="product1">        
+        <InputRadioGroup @bind-Value="product1.Name">
+            @foreach (var item in Products)
+            {
+                <InputRadio Value="item.Name" />
+                @("" + item.Name)
+                <br />
+            }
+        </InputRadioGroup>
+    </EditForm>
+</div>
+
+
+
+@code {
+    Product product = new() { Name = "bolovan" };
+    Product product1 = new();
+    List<Product> Products = new()
+    {
+        new Product(){Name="alex1"},
+        new Product(){Name="alex2"},
+        new Product(){Name="alex3"}
+    };
+    bool isActive = false;
+    int selectGroup = default;
+    EnumNames enumNames;
+
+
+    private class Product
+    {
+        public string? Name { get; set; }
+    }
+
+    enum EnumNames
+    {
+        Alex1,
+        Alex2,
+        Alex3
+    };
+}

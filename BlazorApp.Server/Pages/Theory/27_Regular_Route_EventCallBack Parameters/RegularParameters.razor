@@ -1,0 +1,13 @@
+﻿
+<ul>
+    @foreach (var person in Persons)
+    {
+        <li>@person.FullName</li>
+    }
+</ul>
+
+
+@code{
+    [Parameter]
+    public List<Person> Persons { get; set; }
+}

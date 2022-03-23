@@ -1,0 +1,20 @@
+﻿@inject IPersonRepository personRepo
+
+<input type="text" class="form-control" @bind-value="filter" />
+<button class="btn btn-primary my-2" @onclick="HandleSearchPersons">Search</button>
+
+
+@code {
+    public List<Person> Persons = new();
+    private string? filter = "";
+
+    [Parameter]
+    public EventCallback<List<Person>> OnSearch { get; set; }
+
+    public void HandleSearchPersons()
+    {
+        Persons = personRepo.GetPersonsByFilter(filter);
+
+        OnSearch.InvokeAsync(Persons);
+    }
+}

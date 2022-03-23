@@ -1,0 +1,55 @@
+﻿@page "/parameters"
+
+@inject IPersonRepository personRepo
+
+@*
+    Regular parameters  : display a list of persons in a table in a childComponent
+    Route   parameters  : display a person passing the Id as a route parameter
+    EventCallback       : implement a search that filter the List of Persons
+*@
+
+@*Regular Parameters*@
+<h4>Regular Parameters</h4>
+<RegularParameters Persons="Persons" />
+<br />
+<hr />
+
+@*Route Parameters*@
+<h4>Route Parameters</h4>
+@foreach (var person in Persons)
+{
+    <div>
+        <a href="/routeparameter/@person.Id" class="link-primary">@person.FullName</a>
+    </div>    
+}
+<br />
+<hr />
+
+@*EventCallBack*@
+<h4>EventCallback</h4>
+<EventCallBack OnSearch="FilterPersons" />
+<ul>
+    @foreach (var person in Persons1)
+    {
+        <li>@person.Id</li>
+        <li>@person.FullName</li>
+        <li>@person.Email</li>
+        <br />
+    }
+</ul>
+
+@code {
+    List<Person>? Persons;
+    List<Person>? Persons1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Persons = personRepo.GetPersonsByFilter();
+        Persons1 = Persons;
+    }
+
+    private void FilterPersons(List<Person> persons)
+    {
+        Persons1 = persons;
+    }
+}
