@@ -10,4 +10,8 @@
     <None Include="Pages\Theory\24_DataBiding\DataBiding.razor" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Theory\30_RenderFragment\" />
+  </ItemGroup>
+
 </Project>
