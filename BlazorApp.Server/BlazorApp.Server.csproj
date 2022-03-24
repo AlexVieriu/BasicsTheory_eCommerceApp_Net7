@@ -8,10 +8,7 @@
 
   <ItemGroup>
     <None Include="Pages\Theory\24_DataBiding\DataBiding.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\Theory\30_RenderFragment\" />
+    <None Include="Pages\Theory\33_Forms and Valirations\FormsAndValidations.razor" />
   </ItemGroup>
 
 </Project>

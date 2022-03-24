@@ -1,0 +1,33 @@
+﻿@page "/formsandvalidaitons"
+
+<h3>Form and Validations</h3>
+<br />
+
+<EditForm Model="person">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="card col-6 p-3">
+        <div>
+            <label></label>
+            <InputText />
+        </div>
+
+        <div>
+            <label></label>
+            <InputText />
+        </div>
+
+        <div>
+            <label></label>
+            <InputText />
+        </div>
+
+        <input />
+    </div>
+
+</EditForm>
+
+@code {
+    Person person = new();
+}

@@ -1,0 +1,49 @@
+﻿@page "/componentlifecycles"
+
+<button class="btn btn-primary mb-2" @onclick="OnClick">Count</button>
+<h4>Base Component</h4>
+<p>Count: @count</p>
+
+<ChildLifeCycle Count="count" />
+
+@code {
+    private int count = 0;
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        Console.WriteLine();
+        Console.WriteLine($"Base - SetParametersAsync at {DateTime.Now}");
+        return base.SetParametersAsync(parameters);
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Console.WriteLine($"Base - OnInitialized at {DateTime.Now}");
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        Console.WriteLine($"Base - OnParametersSet at {DateTime.Now}");
+    }
+    ////////////////////////////////
+
+    protected override bool ShouldRender()
+    {
+        Console.WriteLine($"Base - ShouldRender at {DateTime.Now}");
+        return base.ShouldRender();
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        Console.WriteLine($"Base - OnAfterRender at {DateTime.Now}");
+    }
+
+    public void OnClick()
+    {
+        count++;
+        StateHasChanged();
+    }
+}
