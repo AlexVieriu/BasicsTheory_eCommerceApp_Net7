@@ -1,0 +1,57 @@
+﻿@page "/"
+
+@inject ITransient _tran1
+@inject ITransient _tran2
+@inject IScoped _scop1
+@inject IScoped _scop2
+@inject ISingleton _single1
+@inject ISingleton _single2
+
+<h6>To test the singleton we need to open a new web window with the same url</h6>
+<br />
+
+<div>
+    <label>Transient 1</label>
+    <a href="/transient/@tran1">@tran1</a>
+</div>
+
+<div>
+    <label>Transient 2</label>
+    <a href="/transient/@tran2">@tran2</a>
+</div>
+<div>
+    <label>Transient 1</label>
+    <a href="/scoped/@scop1">@scop1</a>
+</div>
+<div>
+    <label>Transient 2</label>
+    <a href="/scoped/@scop1">@scop2</a>
+</div>
+<div>
+    <label>Transient 1</label>
+    <a href="/singleton/@single1">@single1</a>
+</div>
+<div>
+    <label>Transient 2</label>
+    <a href="/singleton/@single2">@single2</a>
+</div>
+
+
+@code {
+    private string tran1;
+    private string tran2;
+    private string scop1;
+    private string scop2;
+    private string single1;
+    private string single2;
+
+    protected override void OnInitialized()
+    {
+        tran1 = _tran1.GetGuid();
+        tran2 = _tran2.GetGuid();
+        scop1 = _scop1.GetGuid();
+        scop2 = _scop2.GetGuid();
+        single1 = _single1.GetGuid();
+        single2 = _single2.GetGuid();
+    }
+}

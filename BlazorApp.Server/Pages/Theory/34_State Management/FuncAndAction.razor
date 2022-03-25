@@ -1,0 +1,44 @@
+﻿@page "/delegets"
+
+<h5>Action Delegate(the results are writen to the console)</h5>
+<div class="m-2">
+    <label>Ex1</label>
+    <button class="btn btn-primary" @onclick="(() => actionDel1(10))">Action with 1 param</button>
+</div>
+
+<div class="m-2">
+    <label>Ex2</label>
+    <button class="btn btn-primary" @onclick="(() => actionDel2(2,5))">Action with 2 params</button>
+</div>
+<hr />
+
+<h5>Func Delegate</h5>
+<div class="m-2">
+    <button class="btn btn-primary" @onclick="(() => x += funcDel(5,6))">Func with 2 params</button>
+    <p>@x</p>
+</div>
+
+
+@code {
+    int x = 0;
+
+    Action<int> actionDel1 = ActionDelegate1;
+    Action<int, int> actionDel2 = ActionDelegate2;
+    Func<int, int, int> funcDel = FuncDelegate;
+
+    private static void ActionDelegate1(int a)
+    {
+        Console.WriteLine(a);
+    }
+
+    private static void ActionDelegate2(int b, int c)
+    {
+        var d = b + c;
+        Console.WriteLine(d);
+    }
+
+    private static int FuncDelegate(int a, int b)
+    {
+        return a + b;
+    }
+}

@@ -1,0 +1,38 @@
+﻿@page "/stateManagements"
+
+@implements IDisposable
+@inject CounterStore counterStore
+
+<a href="/delegets" class="btn btn-primary">How delegates Action and Func work; easy examples</a>
+<hr class="col-6"/>
+
+<h4>Observeble Pattern</h4>
+
+<div>
+    <button class="btn btn-primary" @onclick="IncrementCounter">Count</button>
+    <br />
+    <p>@counterStore.GetState().Count</p>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        counterStore.AddStateChangeListeners(() => { StateHasChanged(); });
+    }
+
+    public void IncrementCounter()
+    {
+        counterStore.IncrementCount();
+    }
+
+    public void UpdateView()
+    {
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        counterStore.RemoveStateChangeListeners(UpdateView);
+    }
+}

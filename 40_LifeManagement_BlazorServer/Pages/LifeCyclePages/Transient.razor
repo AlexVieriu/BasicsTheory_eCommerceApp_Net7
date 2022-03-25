@@ -1,0 +1,19 @@
+﻿@page "/transient/{TransientURL}"
+
+@inject ITransient tran
+
+<p>Original: @TransientVar</p>
+<p>From Url: @TransientURL</p>
+
+
+@code{
+    [Parameter]
+    public string TransientURL { get; set; }
+
+    string TransientVar;
+
+    protected override void OnInitialized()
+    {
+        TransientVar = tran.GetGuid();    
+    }    
+}

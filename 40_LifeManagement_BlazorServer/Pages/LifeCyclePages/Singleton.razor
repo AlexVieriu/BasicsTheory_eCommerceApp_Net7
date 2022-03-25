@@ -1,0 +1,19 @@
+﻿@page "/singleton/{SingleURL}"
+
+@inject ISingleton tran
+
+<p>Original: @SingleVar</p>
+<p>From Url: @SingleURL</p>
+
+
+@code{
+    [Parameter]
+    public string SingleURL { get; set; }
+
+    string SingleVar;
+
+    protected override void OnInitialized()
+    {
+        SingleVar = tran.GetGuid();    
+    }    
+}

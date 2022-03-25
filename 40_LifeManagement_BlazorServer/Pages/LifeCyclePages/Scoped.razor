@@ -1,0 +1,19 @@
+﻿@page "/scoped/{ScopedURL}"
+
+@inject IScoped scoped
+
+<p>Original: @ScopedVar</p>
+<p>From Url: @ScopedURL</p>
+
+
+@code{
+    [Parameter]
+    public string ScopedURL { get; set; }
+
+    string ScopedVar;
+
+    protected override void OnInitialized()
+    {
+        ScopedVar = scoped.GetGuid();    
+    }    
+}

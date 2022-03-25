@@ -9,21 +9,19 @@
 
     <div class="card col-6 p-3">
         <div>
-            <label></label>
-            <InputText />
+            <label class="fw-bold">Id</label>
+            <InputNumber class="form-control mb-4" @bind-Value="person.Id" />
         </div>
 
         <div>
-            <label></label>
-            <InputText />
+            <label class="fw-bold">Full Name</label>
+            <InputText class="form-control mb-4" @bind-Value="person.FullName" />
         </div>
 
         <div>
-            <label></label>
-            <InputText />
-        </div>
-
-        <input />
+            <label class="fw-bold">Email</label>
+            <InputText class="form-control mb-4" @bind-Value="person.Email" />
+        </div>        
     </div>
 
 </EditForm>

@@ -3,6 +3,7 @@
 namespace BlazorApp.Server.Pages.Theory.Model;
 public class Person
 {
+    [Range(1, Int16.MaxValue)]
     public int Id { get; set; }
     [Required]
     public string FullName { get; set; }
