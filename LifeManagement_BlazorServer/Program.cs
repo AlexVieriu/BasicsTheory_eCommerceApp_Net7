@@ -11,7 +11,6 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddTransient<ContactService>();
 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
