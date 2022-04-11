@@ -1,19 +1,12 @@
-﻿@page "/transient/{TransientURL}"
+﻿@inject ITransient _transient
 
-@inject ITransient tran
-
-<p>Original: @TransientVar</p>
-<p>From Url: @TransientURL</p>
-
+<div class="col">Tansient Child: <b>@transient</b></div>
 
 @code{
-    [Parameter]
-    public string TransientURL { get; set; }
-
-    string TransientVar;
+    string? transient;
 
     protected override void OnInitialized()
     {
-        TransientVar = tran.GetGuid();    
+        transient = _transient.GetGuid();    
     }    
 }

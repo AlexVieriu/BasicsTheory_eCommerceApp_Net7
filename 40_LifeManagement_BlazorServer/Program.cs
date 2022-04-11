@@ -4,9 +4,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-builder.Services.AddTransient<ITransient, LifeCycle>();
-builder.Services.AddScoped<IScoped, LifeCycle>();
-builder.Services.AddSingleton<ISingleton, LifeCycle>();
+builder.Services.AddTransient<ITransient, TransientService>();
+builder.Services.AddScoped<IScoped, ScopedService>();
+builder.Services.AddSingleton<ISingleton, SingletonService>();
+
 
 var app = builder.Build();
 

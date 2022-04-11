@@ -1,10 +1,10 @@
 ﻿namespace _40_LifeManagement_BlazorServer.Services;
-public class LifeCycle : ITransient, IScoped, ISingleton
+public class ScopedService : IScoped
 {
     private string _guid;
-    public LifeCycle()
+    public ScopedService()
     {
-        _guid = Guid.NewGuid().ToString();  
+        _guid = Guid.NewGuid().ToString();
     }
 
     public string GetGuid()

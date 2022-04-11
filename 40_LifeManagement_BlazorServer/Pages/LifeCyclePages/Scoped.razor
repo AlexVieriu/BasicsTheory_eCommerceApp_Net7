@@ -1,19 +1,13 @@
-﻿@page "/scoped/{ScopedURL}"
+﻿@inject IScoped _scoped
 
-@inject IScoped scoped
-
-<p>Original: @ScopedVar</p>
-<p>From Url: @ScopedURL</p>
+<div class="col">Scoped Child: <b>@scoped</b></div>
 
 
 @code{
-    [Parameter]
-    public string ScopedURL { get; set; }
-
-    string ScopedVar;
+    string? scoped;
 
     protected override void OnInitialized()
     {
-        ScopedVar = scoped.GetGuid();    
+        scoped = _scoped.GetGuid();    
     }    
 }

@@ -1,19 +1,12 @@
-﻿@page "/singleton/{SingleURL}"
+﻿@inject ISingleton _singleton
 
-@inject ISingleton tran
-
-<p>Original: @SingleVar</p>
-<p>From Url: @SingleURL</p>
-
+<div class="col">Singleton Child: <b>@singleton</b></div>
 
 @code{
-    [Parameter]
-    public string SingleURL { get; set; }
-
-    string SingleVar;
+    string? singleton;
 
     protected override void OnInitialized()
     {
-        SingleVar = tran.GetGuid();    
+        singleton = _singleton.GetGuid();    
     }    
 }
