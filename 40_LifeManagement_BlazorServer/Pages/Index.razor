@@ -38,11 +38,8 @@
 </ul>
 
 
-
-@code {
-    string? singleton;
-    string? scoped;
-    string? transient;
+@code{
+    string? singleton, scoped, transient;
 
     protected override void OnInitialized()
     {
@@ -51,4 +48,5 @@
         transient = _transient.GetGuid();
     }
 }
+
 

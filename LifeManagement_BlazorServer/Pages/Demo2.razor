@@ -1,0 +1,11 @@
+﻿@page "/demo2"
+
+@inject ContactService contactService
+
+@foreach (var contact in contactService.ContactList)
+{
+    <p>@contact.FirstName  @contact.LastName</p>
+    <p>@contact.Email</p>
+    <hr />
+}
+

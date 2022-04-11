@@ -1,0 +1,48 @@
+﻿@page "/"
+
+@inject ContactService contactService
+<div class="col-4">
+    <input class="form-control" placeholder="First Name" @bind="firstName" />
+    <br />
+    <input class="form-control" placeholder="Last Name" @bind="lastName" />
+    <br />
+    <input class="form-control" placeholder="Email" @bind="email" />
+    <br />
+    <button class="btn btn-primary" @onclick="AddContact">
+        Add Contact
+    </button>
+</div>
+<br />
+<br />
+
+
+@if (contactService.ContactList.Count == 0)
+{
+    <p>No contacts</p>
+}
+else
+{
+    @foreach (var contact in contactService.ContactList)
+    {
+        <b>@contact.FirstName @contact.LastName</b>
+        <i>@contact.Email</i>
+        <hr />
+    }
+}
+
+
+@code {
+    private string firstName, lastName, email;
+
+    private void AddContact()
+    {
+        var contact = new Contact
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email
+            };
+
+        contactService.AddContact(contact);
+    }
+}
