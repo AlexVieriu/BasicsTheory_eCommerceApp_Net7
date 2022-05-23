@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Server", "BlazorApp.Server\BlazorApp.Server.csproj", "{B4ACB546-45AF-4504-9CDC-E0F24E230928}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C726129-3495-45DE-9C15-8BF43275BD17}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{4C726129-3495-45DE-9C15-8BF43275BD17}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "40_LifeManagement_API", "40
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "40_LifeManagement_BlazorServer", "40_LifeManagement_BlazorServer\40_LifeManagement_BlazorServer.csproj", "{587268B7-B6B2-436A-994F-244C40EB6195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeManagement_BlazorServer", "LifeManagement_BlazorServer\LifeManagement_BlazorServer.csproj", "{75E3DCC1-BD82-474C-B326-AEAFAE24E760}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeManagement_BlazorServer", "LifeManagement_BlazorServer\LifeManagement_BlazorServer.csproj", "{75E3DCC1-BD82-474C-B326-AEAFAE24E760}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
